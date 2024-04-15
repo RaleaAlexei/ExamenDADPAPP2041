@@ -1,0 +1,39 @@
+﻿<Window x:Class="Biblioteca.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Biblioteca"
+        mc:Ignorable="d"
+        Title="Biblioteca" Height="450" Width="800" ResizeMode="NoResize">
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="Width" Value="200" />
+        </Style>
+
+        <Style TargetType="DataGrid">
+            <Setter Property="Margin" Value="10,50,10,10" />
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="VerticalAlignment" Value="Bottom" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+        </Style>
+
+        <Style TargetType="Popup">
+            <Setter Property="StaysOpen" Value="False" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Button Content="Interogare a" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top" Click="Interogare1_Click"/>
+        <Button Content="Interogare b" HorizontalAlignment="Left" Margin="100,10,10,0" VerticalAlignment="Top" Click="Interogare2_Click"/>
+        <DataGrid x:Name="dgCarti" ItemsSource="{Binding CartiCollection, UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="True" Margin="10,50,400,10" />
+        <Button x:Name="btnAdaugaProdus" Content="Adauga Carti" Command="{Binding AdaugaCartiCommand}" Click="AdaugaCartiCommand_Executed"/>
+        <DataGrid x:Name="dgCititori" ItemsSource="{Binding CititoriCollection, UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="True" Margin="400,50,10,10" />
+        <Button x:Name="btnAdaugaCititor" Content="Adauga Cititori" Command="{Binding AdaugaCititoriCommand}" Click="AdaugaCititoriCommand_Executed" Margin="400,0,0,10"/>
+    </Grid>
+</Window>
